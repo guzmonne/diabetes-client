@@ -1,0 +1,23 @@
+[data-component="SvgVerticalSlider"] [data-slidebar-top],
+[data-component="SvgVerticalSlider"] [data-slidebar-bottom],
+[data-component="SvgVerticalSlider"] [data-slidebar] {
+  fill: var(--blue);
+}
+
+[data-component="SvgVerticalSlider"] [data-input-point-transparent] {
+  fill: white;
+}
+
+[data-component="SvgVerticalSlider"] [data-input],
+[data-component="SvgVerticalSlider"] [data-input-point] {
+  fill: var(--gray);
+}
+
+[data-component="SvgVerticalSlider"] [data-input-inner] {
+  fill: white;
+}
+
+[data-component="SvgVerticalSlider"] [data-input-text] {
+  fill: var(--black);
+  font-size: 24px;
+}
