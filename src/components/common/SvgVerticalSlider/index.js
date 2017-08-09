@@ -1,14 +1,15 @@
 import './style.css';
 import React from 'react'
 import T from 'prop-types'
+import * as d3 from 'd3-scale';
 import SliderBar from './SliderBar.js';
 import SliderInput, {
   width as sliderWidth,
   height as sliderHeight
 } from './SliderInput.js';
-import * as d3 from 'd3-scale';
+import SliderLines from './SliderLines.js';
 
-const AXIS_PADDING = 80,
+const AXIS_PADDING = 90,
       INPUT_PADDING = 20,
       TEXT_X_OFFSET = 10,
       TEXT_Y_OFFSET = 8,
@@ -32,6 +33,11 @@ class SvgVerticalSlider extends React.Component {
 
   componentDidMount() {
     this.pt = this.svg.createSVGPoint();
+    this.svg.addEventListener('touchmove', this.drag, {passive: false});
+  }
+
+  componentWillUnmount() {
+    this.svg.removeEventListener('touchmove', this.drag);
   }
 
   cursorPoint(e) {
@@ -58,6 +64,7 @@ class SvgVerticalSlider extends React.Component {
   drag(e){
     try {
       if (!this.props.onChange || this.state.dragging === false) return;
+      e.preventDefault();
       this.moveSlider(e)
     } catch (error) {
       console.error(error);
@@ -86,8 +93,7 @@ class SvgVerticalSlider extends React.Component {
   }
 
   render() {
-    console.log('render');
-    const {width, height, value} = this.props;
+    const {width, height, value, max, min, step} = this.props;
     this.scale || (this.scale = this.createScale())
     const sliderX = AXIS_PADDING + INPUT_PADDING;
     const sliderY = this.scale(value);
@@ -98,7 +104,6 @@ class SvgVerticalSlider extends React.Component {
         onMouseMove={this.drag}
         onMouseUp={this.endDrag}
         onMouseLeave={this.endDrag}
-        onTouchMove={this.drag}
         onTouchEnd={this.endDrag}
         onClick={this.moveSlider}
         ref={c => this.svg || (this.svg = c)}>
@@ -121,9 +126,16 @@ class SvgVerticalSlider extends React.Component {
             sliderY + sliderHeight / 2 + TEXT_Y_OFFSET
           })`}
         >
-          <text data-input-text x={0} y={0}>{this.sliderValue()}</text>
+          <text data-input-text 
+            x={0} 
+            y={0}
+          >
+            {this.sliderValue()}
+          </text>
         </g>
-        
+        <g data-slider-lines>
+          <SliderLines max={max} min={min} step={step} value={value}/>
+        </g>
       </svg>
     )
   }
@@ -145,7 +157,7 @@ SvgVerticalSlider.defaultProps = {
   value: 10,
   min: 0,
   max: 20,
-  step: 0.1,
+  step: 1,
 };
 
 export default SvgVerticalSlider
