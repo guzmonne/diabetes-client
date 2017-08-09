@@ -62,7 +62,6 @@ class SvgVerticalSlider extends React.Component {
     let {clientX, clientY} = touch ? e.touches[0] : e;
     let {y} = this.cursorPoint({clientX, clientY});
     const currentY = this.scale(this.props.value);
-    console.log(currentY, y, currentY - y);
     this.offsetY = currentY - y;
     this.setState({
       dragging: true,
