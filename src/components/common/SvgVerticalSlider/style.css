@@ -1,7 +1,13 @@
+[data-component="SvgVerticalSlider"] {
+  --svg-vertical-slider-color: var(--blue);
+  display: block;
+  margin: 0 auto;
+}
+
 [data-component="SvgVerticalSlider"] [data-slidebar-top],
 [data-component="SvgVerticalSlider"] [data-slidebar-bottom],
 [data-component="SvgVerticalSlider"] [data-slidebar] {
-  fill: var(--blue);
+  fill: var(--svg-vertical-slider-color);
 }
 
 [data-component="SvgVerticalSlider"] [data-input-point-transparent] {
@@ -24,7 +30,7 @@
 }
 
 [data-component="SvgVerticalSlider"] [data-slider-line] {
-  stroke: var(--blue);
+  stroke: var(--svg-vertical-slider-color);
   stroke-width: 7;
   stroke-linecap: round;
   stroke-linejoin: round;
