@@ -34,7 +34,6 @@ class Slider  extends React.Component {
   }
 
   paintSlider(value){
-    console.log(interpolate(scale(value)));
     this.ref.style.setProperty(
       `--slider-background-color`,
       interpolate(scale(value))

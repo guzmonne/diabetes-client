@@ -19,5 +19,6 @@
 
 [data-component="SvgVerticalSlider"] [data-input-text] {
   fill: var(--black);
-  font-size: 24px;
+  font-size: 20px;
+  user-select: none;
 }

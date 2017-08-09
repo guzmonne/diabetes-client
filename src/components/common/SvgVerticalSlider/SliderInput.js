@@ -1,6 +1,9 @@
 import React from 'react';
 import T from 'prop-types';
 
+export const width = 80;
+export const height = 110;
+
 const SliderInput = () => (
   <svg width="80" height="120">
     <rect data-input-point-transparent
@@ -30,7 +33,14 @@ const SliderInput = () => (
   </svg>
 );
 
-export default SliderInput;
+SliderInput.propTypes = {
+  width: T.number,
+  height: T.number,
+};
 
-export const width = 80;
-export const height = 110;
+SliderInput.defaultProps = {
+  width,
+  height,
+};
+
+export default SliderInput;
