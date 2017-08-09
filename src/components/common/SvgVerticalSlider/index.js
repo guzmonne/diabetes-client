@@ -115,7 +115,6 @@ class SvgVerticalSlider extends React.Component {
     if (!this.svg) return;
     const {value} = this.props;
     const color = this.interpolate(this.colorScale(value));
-    console.log(color);
     this.svg.style.setProperty('--svg-vertical-slider-color', color);
   }
 
