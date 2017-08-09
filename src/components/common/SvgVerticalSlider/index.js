@@ -52,6 +52,7 @@ class SvgVerticalSlider extends React.Component {
       dragging: true,
       touch: touch === true,
     });
+    this.drag(e);
   }
 
   drag(e){
