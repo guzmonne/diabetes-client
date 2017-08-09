@@ -1,7 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
 import range from 'lodash/range';
-import {VictoryAnimation} from 'victory';
 
 export const width = 90;
 export const height = 400;
@@ -25,17 +24,6 @@ const calculateInitialLineStart = (lines, i, valueLine) => {
   return width - result;
 }
 
-const Line = (props) => (
-  <VictoryAnimation
-    duration={500}
-    delay={0}
-    data={props}
-    easing="quadInOut"
-  >{(tweenProps, animationInfo) => {
-    return <line {...tweenProps}/>
-  }}</VictoryAnimation>
-);
-
 const SliderLines = ({min, max, step, padding, value}) => {
   const maxLine = padding;
   const minLine = height - padding;
@@ -47,7 +35,7 @@ const SliderLines = ({min, max, step, padding, value}) => {
   return (
     <svg width={width} height={height}>
     {range(0, lines + 1).map(i => (
-      <Line data-slider-line
+      <line data-slider-line
         key={i}
         x1={calculateInitialLineStart(lines, i, valueLine)}
         y1={maxLine + i * linePadding}

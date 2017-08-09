@@ -51,12 +51,19 @@ class SvgVerticalSlider extends React.Component {
 
   moveSlider(e) {
     let {clientX, clientY} = this.state.touch ? e.touches[0] : e;
-    let {y} = this.cursorPoint({clientX, clientY});
-    y -= sliderHeight / 2;
+    let {y} = this.cursorPoint({
+      clientX,
+      clientY: clientY + this.offsetY,
+    });
     this.props.onChange(this.scale.invert(y));
   }
 
   startDrag(touch, e) {
+    let {clientX, clientY} = touch ? e.touches[0] : e;
+    let {y} = this.cursorPoint({clientX, clientY});
+    const currentY = this.scale(this.props.value);
+    console.log(currentY, y, currentY - y);
+    this.offsetY = currentY - y;
     this.setState({
       dragging: true,
       touch: touch === true,
@@ -70,7 +77,7 @@ class SvgVerticalSlider extends React.Component {
       e.preventDefault();
       this.moveSlider(e)
     } catch (error) {
-      console.error(error);
+      return;
     }
   }
 
@@ -138,14 +145,14 @@ class SvgVerticalSlider extends React.Component {
           <SliderBar />
         </g>
         <g data-input-container
-          onMouseDown={this.startDrag}
+          onMouseDown={this.startDrag.bind(this, false)}
           onTouchStart={this.startDrag.bind(this, true)}
           transform={`translate(${sliderX}, ${sliderY}) rotate(90, 40, 55)`}
         >
           <SliderInput />
         </g>
         <g data-input-container
-          onMouseDown={this.startDrag}
+          onMouseDown={this.startDrag.bind(this, false)}
           onTouchStart={this.startDrag.bind(this, true)}
           transform={`translate(${
             sliderX + sliderWidth / 2 - TEXT_X_OFFSET
