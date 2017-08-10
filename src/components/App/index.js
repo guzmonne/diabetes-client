@@ -1,6 +1,6 @@
 import './style.css'
 import React, { Component } from 'react';
-import TimeOfDaySelector from '../TimeOfDaySelector/'
+import LineChart from '../common/LineChart/';
 
 class App extends Component {
   constructor() {
@@ -25,16 +25,9 @@ class App extends Component {
   }
 
   render() {
-    const {previoustimeOfDayValue, timeOfDayValue} = this.state;
-    const {onTimeOfDayChange} = this;
-
     return (
       <div data-component="App">
-        <TimeOfDaySelector
-          onChange={onTimeOfDayChange}
-          value={timeOfDayValue}
-          previousValue={previoustimeOfDayValue}
-        />
+        <LineChart />
       </div>
     );
   }
