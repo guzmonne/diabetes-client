@@ -18,15 +18,19 @@
   --black: #111111;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  outline: none;
+  margin: 0;
+  border: none;
+}
+
 body {
   font-size: 16px;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-
-[data-component="App"] {
-  padding: 0.5em;
 }
 
 /** Reset Button styles */
@@ -35,7 +39,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 button {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 /* Reset `button` and button-style `input` default styles */

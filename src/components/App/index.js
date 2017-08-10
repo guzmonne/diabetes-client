@@ -1,7 +1,6 @@
 import './style.css'
 import React, { Component } from 'react';
-import Icon from '../common/Icon/';
-import CircleButton from '../common/CircleButton/';
+import TimeOfDaySelector from '../TimeOfDaySelector/'
 
 class App extends Component {
   constructor() {
@@ -10,32 +9,26 @@ class App extends Component {
     this.onSvgVerticalSliderChange = this.onSvgVerticalSliderChange.bind(this);
     // Initial state.
     this.state = {
-      value: 5,
+      sliderValue: 5,
+      timeOfDayValue: undefined,
     };
   }
 
   onSvgVerticalSliderChange(value) {
-    this.setState({value});
+    this.setState({sliderValue: value});
+  }
+
+  onTimeOfDayChange(value) {
+    this.setState({timeOfDayValue: value});
   }
 
   render() {
-    const {value} = this.state;
-    const {onSvgVerticalSliderChange} = this;
+    const {timeOfDayValue} = this.state;
+    const {onTimeOfDayChange} = this;
 
     return (
       <div data-component="App">
-        <CircleButton diameter="90" disabled={true}>
-          <Icon width="60" height="60" name="breakfast"/>
-        </CircleButton>
-        <CircleButton diameter="90" disabled={true}>
-          <Icon width="60" height="60" name="lunch"/>
-        </CircleButton>
-        <CircleButton diameter="90" disabled={true}>
-          <Icon width="60" height="60" name="coffee"/>
-        </CircleButton>
-        <CircleButton diameter="90" disabled={true}>
-          <Icon width="60" height="60" name="dinner"/>
-        </CircleButton>
+        <TimeOfDaySelector onChange={onTimeOfDayChange} value={timeOfDayValue}/>
       </div>
     );
   }

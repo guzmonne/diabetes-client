@@ -1,0 +1,9 @@
+[data-component="TimeOfDaySelector"] [data-row] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-component="TimeOfDaySelector"] [data-row] > * {
+  margin: 0.5em 1em;
+}

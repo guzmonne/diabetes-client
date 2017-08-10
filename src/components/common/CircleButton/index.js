@@ -2,9 +2,14 @@ import './style.css';
 import React from 'react';
 import T from 'prop-types';
 
-const CircleButton = ({diameter, children, ...rest}) => (
+const CircleButton = ({diameter, children, color, style, ...rest}) => (
   <button data-component="CircleButton" 
-    style={{width: `${diameter}px`, height: `${diameter}px`}} 
+    style={Object.assign({
+      width: `${diameter}px`, 
+      height: `${diameter}px`,
+    }, (
+      color ? {backgroundColor: `var(--${color})`} : undefined
+    ), style)} 
     type="button"
     {...rest}
   >
@@ -15,10 +20,13 @@ const CircleButton = ({diameter, children, ...rest}) => (
 CircleButton.propTypes = {
   diameter: T.oneOfType([T.number, T.string]),
   children: T.node,
+  color: T.string,
+  style: T.object,
 };
 
 CircleButton.defaultProps = {
   diameter: 3,
+  style: {},
 };
 
 export default CircleButton;

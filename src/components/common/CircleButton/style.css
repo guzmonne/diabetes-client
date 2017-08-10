@@ -2,18 +2,24 @@
   border-radius: 50%;
   background-color: var(--silver);
   color: white;
-  box-shadow: 0 1em 2em -1em var(--gray);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.5s;
+  outline: none;
 }
 
-[data-component="CircleButton"]:disabled {
-  opacity: 0.8;
+[data-component="CircleButton"][data-selected]{
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
 }
 
 [data-component="CircleButton"]:hover {
-  box-shadow: 0 1em 2em -1em var(--black);  
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
 }
 
 [data-component="CircleButton"]:hover:disabled {
   opacity: 0.9;  
+}
+
+[data-component="CircleButton"]:disabled {
+  opacity: 0.8;
+  box-shadow: none;  
 }
