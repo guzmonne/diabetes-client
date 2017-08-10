@@ -1,15 +1,16 @@
 import React from 'react';
 import T from 'prop-types';
 import range from 'lodash/range';
+import {Animate} from 'react-move';
 
-export const width = 90;
+export const width = 60;
 export const height = 400;
 
 const MARGIN_RIGHT = 10;
 const MICRO_LENGTH = 20;
-const MIN_LENGTH = 40;
-const MED_LENGTH = 60;
-const MAX_LENGTH = 80;
+const MIN_LENGTH = 30;
+const MED_LENGTH = 40;
+const MAX_LENGTH = 50;
 
 const calculateInitialLineStart = (lines, i, valueLine) => {
   const result = (
@@ -24,6 +25,19 @@ const calculateInitialLineStart = (lines, i, valueLine) => {
   return width - result;
 }
 
+const Line = (props) => (
+  <Animate
+    data={props}
+    default={props}
+    duration={100}
+    easing="easeCubicOut"
+    flexDuration={false}
+    ignore={['y1', 'x2', 'y2']}
+  >{data => (
+    <line data-slider-line {...data}/>
+  )}</Animate>
+);
+
 const SliderLines = ({min, max, step, padding, value}) => {
   const maxLine = padding;
   const minLine = height - padding;
@@ -35,7 +49,7 @@ const SliderLines = ({min, max, step, padding, value}) => {
   return (
     <svg width={width} height={height}>
     {range(0, lines + 1).map(i => (
-      <line data-slider-line
+      <Line data-slider-line
         key={i}
         x1={calculateInitialLineStart(lines, i, valueLine)}
         y1={maxLine + i * linePadding}

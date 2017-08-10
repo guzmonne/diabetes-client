@@ -10,7 +10,7 @@ import SliderLines from './SliderLines.js';
 
 const d3 = Object.assign({}, require('d3-scale'), require('d3-interpolate'));
 
-const AXIS_PADDING = 90,
+const AXIS_PADDING = 60,
       INPUT_PADDING = 20,
       TEXT_X_OFFSET = 10,
       TEXT_Y_OFFSET = 8,
@@ -188,7 +188,7 @@ SvgVerticalSlider.propTypes = {
 };
 
 SvgVerticalSlider.defaultProps = {
-  width: 210,
+  width: 180,
   height: 400,
   value: 10,
   min: 0,
