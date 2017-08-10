@@ -1,6 +1,7 @@
 import './style.css'
 import React, { Component } from 'react';
-import SvgVerticalSlider from '../common/SvgVerticalSlider/';
+import Icon from '../common/Icon/';
+import CircleButton from '../common/CircleButton/';
 
 class App extends Component {
   constructor() {
@@ -23,7 +24,18 @@ class App extends Component {
 
     return (
       <div data-component="App">
-        <SvgVerticalSlider onChange={onSvgVerticalSliderChange} value={value}/>
+        <CircleButton diameter="90" disabled={true}>
+          <Icon width="60" height="60" name="breakfast"/>
+        </CircleButton>
+        <CircleButton diameter="90" disabled={true}>
+          <Icon width="60" height="60" name="lunch"/>
+        </CircleButton>
+        <CircleButton diameter="90" disabled={true}>
+          <Icon width="60" height="60" name="coffee"/>
+        </CircleButton>
+        <CircleButton diameter="90" disabled={true}>
+          <Icon width="60" height="60" name="dinner"/>
+        </CircleButton>
       </div>
     );
   }

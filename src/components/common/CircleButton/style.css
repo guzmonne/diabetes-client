@@ -1,0 +1,19 @@
+[data-component="CircleButton"] {
+  border-radius: 50%;
+  background-color: var(--silver);
+  color: white;
+  box-shadow: 0 1em 2em -1em var(--gray);
+  transition: all 0.5s;
+}
+
+[data-component="CircleButton"]:disabled {
+  opacity: 0.8;
+}
+
+[data-component="CircleButton"]:hover {
+  box-shadow: 0 1em 2em -1em var(--black);  
+}
+
+[data-component="CircleButton"]:hover:disabled {
+  opacity: 0.9;  
+}
