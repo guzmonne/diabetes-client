@@ -1,9 +1,14 @@
-[data-component="TimeOfDaySelector"] [data-row] {
+[data-component="TimeOfDaySelector"] [data-row] ,
+[data-component="TimeOfDaySelector"] [data-icon]{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+[data-component="TimeOfDaySelector"] [data-icon] {
+  flex-direction: column;
+}
+
 [data-component="TimeOfDaySelector"] [data-row] > * {
-  margin: 0.5em 1em;
+  margin: 1em;
 }

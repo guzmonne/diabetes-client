@@ -7,10 +7,12 @@ class App extends Component {
     super();
     // Bind functions.
     this.onSvgVerticalSliderChange = this.onSvgVerticalSliderChange.bind(this);
+    this.onTimeOfDayChange = this.onTimeOfDayChange.bind(this);
     // Initial state.
     this.state = {
       sliderValue: 5,
-      timeOfDayValue: undefined,
+      timeOfDayValue: 0,
+      previoustimeOfDayValue: 2
     };
   }
 
@@ -23,12 +25,16 @@ class App extends Component {
   }
 
   render() {
-    const {timeOfDayValue} = this.state;
+    const {previoustimeOfDayValue, timeOfDayValue} = this.state;
     const {onTimeOfDayChange} = this;
 
     return (
       <div data-component="App">
-        <TimeOfDaySelector onChange={onTimeOfDayChange} value={timeOfDayValue}/>
+        <TimeOfDaySelector
+          onChange={onTimeOfDayChange}
+          value={timeOfDayValue}
+          previousValue={previoustimeOfDayValue}
+        />
       </div>
     );
   }

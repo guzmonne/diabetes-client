@@ -1,25 +1,41 @@
 [data-component="CircleButton"] {
+  position: relative;
   border-radius: 50%;
   background-color: var(--silver);
   color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: all 0.5s;
   outline: none;
+  box-shadow: none;
+  transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-[data-component="CircleButton"][data-selected]{
+[data-component="CircleButton"][data-selected] {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
 }
 
-[data-component="CircleButton"]:hover {
+[data-component="CircleButton"]::after {
+  top: 0;
+  left: 0;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-[data-component="CircleButton"]:hover:disabled {
-  opacity: 0.9;  
+[data-component="CircleButton"]:hover::after {
+  opacity: 1;
 }
 
 [data-component="CircleButton"]:disabled {
-  opacity: 0.8;
+  opacity: 0.5;
   box-shadow: none;  
+}
+
+[data-component="CircleButton"]:disabled::after {
+  opacity: 0;
 }
