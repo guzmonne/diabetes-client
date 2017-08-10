@@ -1,6 +1,5 @@
 import './style.css'
 import React, { Component } from 'react';
-import HorizontalSlider from '../common/HorizontalSlider/';
 import SvgVerticalSlider from '../common/SvgVerticalSlider/';
 
 class App extends Component {
@@ -24,8 +23,7 @@ class App extends Component {
 
     return (
       <div data-component="App">
-        <HorizontalSlider />
-        <SvgVerticalSlider value={value} onChange={onSvgVerticalSliderChange}/>
+        <SvgVerticalSlider onChange={onSvgVerticalSliderChange} value={value}/>
       </div>
     );
   }
