@@ -1,20 +1,21 @@
 import React from 'react';
-import data from './data.js';
 import {
   VictoryChart,
   VictoryArea,
-  VictoryTheme,
   VictoryAxis,
   VictoryBrushContainer,
 } from 'victory';
 import moment from 'moment';
+import data from './data.js';
+import theme from './theme.js';
+import GradientArea from './GradientArea.js'
 
 moment.locale('es');
 
 const PADDING = 0;
 const WIDTH = document.body.offsetWidth - PADDING;
 
-class LineChart extends React.Component {
+class AreaChart extends React.Component {
   constructor() {
     super();
     // Bind functions.
@@ -38,12 +39,15 @@ class LineChart extends React.Component {
     return (
       <div>
         <VictoryChart 
+          padding={{top: 20, right: 20, bottom: 30, left: 30}}
+          height={WIDTH / (16 / 9)}
           width={WIDTH}
           domain={{
             x: this.state.xDomain,
             y: [0, 20]
           }}
-          theme={VictoryTheme.material}>
+          domainPadding={1}
+          theme={theme}>
           <VictoryAxis 
             fixLabelOverlap={true}
             scale="time"
@@ -57,15 +61,22 @@ class LineChart extends React.Component {
             orientation="left"
             dependentAxis
           />
-          <VictoryArea data={data} x='date' y='value'/>
+          <VictoryArea data={data}
+            x='date'
+            y='value'
+            dataComponent={<GradientArea />}
+            interpolation='natural'/>
         </VictoryChart>
         
         <VictoryChart
-          height={150}
+          padding={{top: 0, right: 20, bottom: 0, left: 30}}
+          height={50}
           width={WIDTH}
           domain={{
             y: [0, 20]
           }}
+          domainPadding={1}
+          theme={theme}
           containerComponent={
             <VictoryBrushContainer 
               onDomainChange={this.domainChange}
@@ -83,19 +94,24 @@ class LineChart extends React.Component {
               tickLabels: {fontSize: 9, padding: 5}
             }}  
           />
-          <VictoryArea data={data} x='date' y='value'/>
+          <VictoryArea
+            data={data}
+            x='date'
+            y='value'
+            dataComponent={<GradientArea />}
+            interpolation='natural'/>
         </VictoryChart>
       </div>
     );
   }
 }
 
-LineChart.propTypes = {
+AreaChart.propTypes = {
   
 };
 
-LineChart.defaultProps = {
+AreaChart.defaultProps = {
   
 };
 
-export default LineChart;
+export default AreaChart;
