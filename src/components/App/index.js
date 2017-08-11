@@ -1,6 +1,6 @@
 import './style.css'
 import React, { Component } from 'react';
-import AreaChart from '../common/AreaChart/';
+import MeasureWizarForm from '../MeasureWizardForm/';
 
 class App extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div data-component="App">
-        <AreaChart />
+        <MeasureWizarForm />
       </div>
     );
   }

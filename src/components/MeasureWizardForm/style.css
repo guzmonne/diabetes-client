@@ -1,0 +1,6 @@
+[data-component="GlucoseForm"] [data-header] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+}
