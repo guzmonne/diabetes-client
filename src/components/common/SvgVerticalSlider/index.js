@@ -27,6 +27,8 @@ class SvgVerticalSlider extends React.Component {
     this.endDrag = this.endDrag.bind(this);
     this.moveSlider = this.moveSlider.bind(this);
     this.setMainColor = this.setMainColor.bind(this);
+    // Static values
+    this.offsetY = 0;
     // Initial state.
     this.state = {
       dragging: false,
