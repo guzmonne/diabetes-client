@@ -1,0 +1,16 @@
+[data-component="IconCircleButton"] {
+  position: relative;
+  color: white;
+}
+
+[data-component="IconCircleButton"] > button,
+[data-component="IconCircleButton"] > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-component="IconCircleButton"] svg {
+  fill: whitesmoke;
+}
