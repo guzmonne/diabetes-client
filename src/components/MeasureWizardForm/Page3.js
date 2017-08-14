@@ -1,5 +1,4 @@
 import React from 'react';
-import T from 'prop-types';
 
 const Page3 = () => (
   <h1>Page3</h1>
