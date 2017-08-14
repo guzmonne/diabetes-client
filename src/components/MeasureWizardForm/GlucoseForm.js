@@ -3,6 +3,7 @@ import React from 'react';
 import T from 'prop-types';
 import SvgVerticalSlider from '../common/SvgVerticalSlider/';
 import IconCircleButton from '../common/IconCircleButton/';
+import Button from '../common/Button/';
 
 const GlucoseForm = ({onGlucoseLevelChange, glucoseValue, nextPage}) => (
   <div data-component="GlucoseForm">
@@ -14,7 +15,12 @@ const GlucoseForm = ({onGlucoseLevelChange, glucoseValue, nextPage}) => (
     
     <SvgVerticalSlider onChange={onGlucoseLevelChange} value={glucoseValue}/>
     <div data-next-button>
-      <button onClick={nextPage}>Siguiente</button>
+      <Button 
+        type="info"
+        block
+        onClick={nextPage}>
+        Siguiente
+      </Button>
     </div>
   </div>
 );
