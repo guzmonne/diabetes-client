@@ -1,0 +1,26 @@
+[data-component="Home"] {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+[data-component="Home"] > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 16px 0px;
+}
+
+[data-component="Home"] [data-charts] {
+  border-bottom: 2px solid rgb(208, 102, 250);
+}
+
+[data-component="Home"] [data-measure] {
+  border-bottom: 2px solid rgb(255, 96, 95);
+}
+
+[data-component="Home"] [data-configuration] {
+  border-bottom: 2px solid rgb(0, 168, 255);
+}

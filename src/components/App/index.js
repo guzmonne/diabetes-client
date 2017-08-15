@@ -1,6 +1,6 @@
 import './style.css'
 import React, { Component } from 'react';
-import MeasureWizardForm from '../MeasureWizardForm/';
+import Home from '../Home/';
 
 class App extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div data-component="App">
-        <MeasureWizardForm />
+        <Home />
       </div>
     );
   }
