@@ -1,15 +1,17 @@
 import './style.css'
 import React, {Component} from 'react';
-import {NOT_FOUND} from 'redux-first-router';
 import T from 'prop-types';
+import NotFound from '../NotFound/';
 import Home from '../Home/';
+import MeasureWizardForm from '../MeasureWizardForm/';
 
 class App extends Component {
   routeComponent(location) {
-    if (location === 'HOME')
-      return Home;
-    else
-      return NOT_FOUND;
+    switch(location) {
+      case 'HOME': return Home;
+      case 'MEASURE': return MeasureWizardForm;
+      default: return NotFound;
+    }
   }
 
   render() {

@@ -19,7 +19,7 @@ class MeasureWizardForm extends React.Component {
       glucoseValue: 0,
       timeOfDayValue: 0,
       timeOfDayPreviousValue: 0,
-      currentPage: 2,
+      currentPage: 0,
     };
   }
 

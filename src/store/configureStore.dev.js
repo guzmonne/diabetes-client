@@ -8,6 +8,8 @@ const history = createHistory();
 const routesMap = {
   HOME: '/',
   CONFIGURATION: '/configuration',
+  MEASURE: '/measure',
+  STATISTICS: '/statistics'
 };
 
 const {reducer, middleware, enhancer} = connectRoutes(history, routesMap);
