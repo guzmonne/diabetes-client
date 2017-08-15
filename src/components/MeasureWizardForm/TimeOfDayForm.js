@@ -2,7 +2,7 @@ import './style.css';
 import React from 'react';
 import T from 'prop-types';
 import TimeOfDaySelector from '../TimeOfDaySelector/';
-import Header from './Header.js';
+import Header from '../common/Header/';
 import Button from '../common/Button/';
 
 const TimeOfDayForm = ({

@@ -1,0 +1,9 @@
+[data-component="Header"] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background: whitesmoke;
+  border-bottom: 1px solid rgba(169, 169, 169, 0.37);
+  min-height: 62px;
+}

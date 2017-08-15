@@ -2,7 +2,7 @@ import './style.css';
 import React from 'react';
 import T from 'prop-types';
 import SvgVerticalSlider from '../common/SvgVerticalSlider/';
-import Header from './Header.js';
+import Header from '../common/Header/';
 import Button from '../common/Button/';
 
 const GlucoseForm = ({

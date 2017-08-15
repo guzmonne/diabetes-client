@@ -12,17 +12,6 @@
   justify-content: center;
 }
 
-[data-component="GlucoseForm"] [data-header],
-[data-component="TimeOfDayForm"] [data-header] {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em;
-  background: whitesmoke;
-  border-bottom: 1px solid rgba(169, 169, 169, 0.37);
-  min-height: 62px;
-}
-
 [data-component="GlucoseForm"] [data-header] h4,
 [data-component="TimeOfDayForm"] [data-header] h4  {
   margin: 0;

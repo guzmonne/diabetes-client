@@ -1,12 +1,13 @@
+import './style.css';
 import React from 'react';
 import T from 'prop-types';
 import {connect} from 'react-redux';
-import IconCircleButton from '../common/IconCircleButton/';
+import IconCircleButton from '../IconCircleButton/';
 
 const DIAMETER = 40;
 
 const Header = ({prevPage, linkToHome, title}) => (
-  <div data-header>
+  <div data-component="Header">
     <IconCircleButton 
       disabled={!prevPage}
       icon="AngleLeft"
