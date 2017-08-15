@@ -13,14 +13,48 @@
   box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 16px 0px;
 }
 
-[data-component="Home"] [data-charts] {
+
+[data-component="Home"] > [data-component="Ripple"] {
+  position: relative;
+}
+
+[data-component="Home"] > [data-component="Ripple"]:nth-child(1) {
   border-bottom: 2px solid rgb(208, 102, 250);
 }
 
-[data-component="Home"] [data-measure] {
+[data-component="Home"] > [data-component="Ripple"]:nth-child(2) {
   border-bottom: 2px solid rgb(255, 96, 95);
 }
 
-[data-component="Home"] [data-configuration] {
+[data-component="Home"] > [data-component="Ripple"]:nth-child(3) {
   border-bottom: 2px solid rgb(0, 168, 255);
+}
+
+[data-component="Home"] [data-charts],
+[data-component="Home"] [data-measure],
+[data-component="Home"] [data-configuration] {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  top: 0;
+  left: 0;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-component="Home"] [data-charts]:focus,
+[data-component="Home"] [data-charts]:active {
+  background-color: rgb(208, 102, 250);
+}
+
+[data-component="Home"] [data-measure]:focus,
+[data-component="Home"] [data-measure]:active {
+  background-color: rgb(255, 96, 95);
+}
+
+[data-component="Home"] [data-configuration]:focus,
+[data-component="Home"] [data-configuration]:active {
+  background-color: rgb(0, 168, 255);
 }

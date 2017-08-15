@@ -36,7 +36,6 @@ function withRipple(Component) {
         deltaX = (w / 2) + offsetX,
         deltaY = (h / 2) + offsetY,
         scaleRatio = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-      console.log({target: e.target, x, y, w, h});
       this.setState({
         width: w,
         height: h,
