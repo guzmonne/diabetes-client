@@ -1,9 +1,9 @@
 import React from 'react'
 import GlucoseForm from './GlucoseForm.js';
 import TimeOfDayForm from './TimeOfDayForm.js';
-import Page3 from './Page3.js';
+import Success from './Success.js';
 
-const PAGES = [GlucoseForm, TimeOfDayForm, Page3];
+const PAGES = [GlucoseForm, TimeOfDayForm, Success];
 
 class MeasureWizardForm extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ class MeasureWizardForm extends React.Component {
       glucoseValue: 0,
       timeOfDayValue: 0,
       timeOfDayPreviousValue: 0,
-      currentPage: 0,
+      currentPage: 2,
     };
   }
 

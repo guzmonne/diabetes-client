@@ -1,9 +1,15 @@
 [data-component="GlucoseForm"],
-[data-component="TimeOfDayForm"] {
+[data-component="TimeOfDayForm"],
+[data-component="Success"] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+}
+
+[data-component="Success"] {
+  padding: 1em;
+  justify-content: center;
 }
 
 [data-component="GlucoseForm"] [data-header],
@@ -31,5 +37,9 @@
 
 [data-component="GlucoseForm"] [data-next-button] [data-component="Ripple"],
 [data-component="TimeOfDayForm"] [data-next-button] [data-component="Ripple"] {
+  width: 100%;
+}
+
+[data-component="Success"] [data-component="Ripple"] {
   width: 100%;
 }
