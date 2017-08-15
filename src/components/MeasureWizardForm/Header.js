@@ -1,10 +1,11 @@
 import React from 'react';
 import T from 'prop-types';
+import {connect} from 'react-redux';
 import IconCircleButton from '../common/IconCircleButton/';
 
 const DIAMETER = 40;
 
-const Header = ({prevPage, cancelForm, title}) => (
+const Header = ({prevPage, linkToHome, title}) => (
   <div data-header>
     <IconCircleButton 
       disabled={!prevPage}
@@ -17,7 +18,7 @@ const Header = ({prevPage, cancelForm, title}) => (
       icon="Times" 
       type="default"        
       diameter={DIAMETER}
-      onClick={(e) => cancelForm && cancelForm(e)}
+      onClick={(e) => linkToHome && linkToHome(e)}
     />
   </div>
 );
@@ -25,11 +26,17 @@ const Header = ({prevPage, cancelForm, title}) => (
 Header.propTypes = {
   title: T.string,
   prevPage: T.func,
-  cancelForm: T.func,
+  linkToHome: T.func,
 };
 
 Header.defaultProps = {
   title: '',
 };
 
-export default Header;
+const ConnectedHeader = connect(() => ({}), (dispatch) => ({
+  linkToHome: () => dispatch({type: 'HOME'}),
+}))(Header)
+
+ConnectedHeader.displayName = 'ConnectedHeader';
+
+export default ConnectedHeader;

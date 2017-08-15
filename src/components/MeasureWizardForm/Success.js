@@ -1,26 +1,33 @@
 import React from 'react';
 import T from 'prop-types';
+import {connect} from 'react-redux';
 import SuccessAnimation from '../common/SuccessAnimation/';
 import Button from '../common/Button/';
 
-const Success = ({prevPage}) => (
+const Success = ({linkToHome}) => (
   <div data-component="Success">
     <SuccessAnimation />
     <Button
       type="info"
       block
-      onClick={prevPage}>
+      onClick={linkToHome}>
       Listo!
     </Button>
   </div>
 )
 
 Success.propTypes = {
-  done: T.func,
+  linkToHome: T.func,
 }
 
 Success.defaultProps = {
-  done: () => {},
+  linkToHome: () => {},
 }
 
-export default Success;
+const ConnectedSuccess = connect(() => ({}), (dispatch) => ({
+  linkToHome: () => dispatch({type: 'HOME'}),
+}))(Success)
+
+ConnectedSuccess.displayName = 'ConnectedSuccess';
+
+export default ConnectedSuccess;
