@@ -1,0 +1,109 @@
+[data-component="SuccessAnimation"] [data-lines] {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transform-origin: 50% 50%;
+  animation: success-animation-flare 1.5s ease-in-out forwards;
+}
+
+[data-component="SuccessAnimation"] [data-arrow] {
+  transform-origin: center;
+  animation: success-animation-grow 1.2s ease-in-out forwards;
+}
+
+[data-component="SuccessAnimation"] [data-blob]  {
+  transform-origin: center;
+  animation: success-animation-scale 1s ease-in-out forwards;
+}
+
+[data-component="SuccessAnimation"] [data-whiteblob] {
+  transform-origin: center;
+  animation: success-animation-whiteblobscale 1s ease-in-out forwards;
+}
+
+[data-component="SuccessAnimation"] [data-circle] {
+  transform-origin: 50% 50%;
+  animation: success-animation-appear 1.2s ease-in-out forwards;
+}
+
+@keyframes success-animation-scale {
+  0% {
+    transform: scale3d(0, 0, 1);
+  }
+  30%, 100% {
+    transform: scale3d(3.7, 3.7, 1);
+  }
+}
+@keyframes success-animation-whiteblobscale {
+  0%, 20% {
+    transform: scale3d(0, 0, 1);
+  }
+  46%, 100% {
+    transform: scale3d(3.8, 3.8, 1);
+  }
+}
+@keyframes success-animation-appear {
+  0%, 23% {
+    opacity: 0.0;
+    transform: scale3d(0, 0, 0);
+  }
+  30%, 100% {
+    opacity: 1.0;
+  }
+  17% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  25% {
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  30% {
+    transform: scale3d(1, 1, 1);
+  }
+  45% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  60% {
+    transform: scale3d(1, 1, 1);
+  }
+  80% {
+    transform: scale3d(0.95, 0.95, 1);
+  }
+  98% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes success-animation-grow {
+  0% {
+    transform: scale3d(0, 0, 0);
+  }
+  30% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  45% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  60% {
+    transform: scale3d(1, 1, 1);
+  }
+  80% {
+    transform: scale3d(0.95, 0.95, 1);
+  }
+  98% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes success-animation-flare {
+  0%, 10% {
+    opacity: 0.0;
+    transform: scale3d(0, 0, 0);
+    stroke-dashoffset: 10;
+  }
+  12% {
+    opacity: 1.0;
+    transform: scale3d(0.5, 0.5, 1);
+  }
+  35% {
+    transform: scale3d(1, 1, 1);
+    stroke-dashoffset: 100;
+    stroke-dasharray: 100;
+  }
+}
