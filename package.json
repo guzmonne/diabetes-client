@@ -8,6 +8,7 @@
   "dependencies": {
     "d3": "^4.10.0",
     "gsap": "^1.20.2",
+    "history": "^4.6.3",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "react": "^15.6.1",
@@ -15,6 +16,8 @@
     "react-move": "^1.6.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "redux-first-router": "^1.9.14",
+    "redux-first-router-link": "^1.1.4",
     "victory": "^0.21.4"
   },
   "scripts": {

@@ -1,11 +1,34 @@
-import {createStore} from 'redux'
-import rootReducer from './reducers.js'
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
+import {connectRoutes} from 'redux-first-router';
+import createHistory from 'history/createBrowserHistory.js';
+import {entities, error} from './reducers.js'
+
+const history = createHistory();
+
+const routesMap = {
+  HOME: '/',
+  CONFIGURATION: '/configuration',
+};
+
+const {reducer, middleware, enhancer} = connectRoutes(history, routesMap);
+
+const rootReducer = combineReducers({
+  location: reducer,
+  entities,
+  error,
+});
+
+const middlewares = applyMiddleware(middleware);
 
 const configureStore = preloadedState => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+      enhancer,
+      middlewares,
+      window.devToolsExtension && process.env.NODE_ENV !== 'production' ? window.devToolsExtension() : f => f
+    )
   )
 
   if (module.hot) {
