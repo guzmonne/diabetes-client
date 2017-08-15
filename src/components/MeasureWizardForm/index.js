@@ -11,6 +11,8 @@ class MeasureWizardForm extends React.Component {
     // Bind functions.
     this.onGlucoseLevelChange = this.onGlucoseLevelChange.bind(this);
     this.nextPage = this.nextPage.bind(this);
+    this.prevPage = this.prevPage.bind(this);
+    this.cancelForm = this.cancelForm.bind(this);
     // Initial State.
     this.state = {
       glucoseValue: 0,
@@ -26,18 +28,30 @@ class MeasureWizardForm extends React.Component {
     this.setState((state) => ({currentPage: state.currentPage + 1}));
   }
 
+  prevPage(e) {
+    e.preventDefault();
+    console.log('prevPage');
+    this.setState((state) => ({currentPage: Storage.currentPage - 1}));
+  }
+
+  cancelForm(e) {
+    e.preventDefault();
+    console.log('cancelForm');
+  }
+
   onGlucoseLevelChange(e) {
     this.setState({glucoseValue: e});
   }
   
   render() {
-    const {onGlucoseLevelChange, nextPage} = this;
+    const {onGlucoseLevelChange, nextPage, prevPage, cancelForm} = this;
     const {currentPage, ...state} = this.state;
     const component = PAGES[currentPage];
-    const page = React.createElement(component, {
-      ...state,
-      ...{onGlucoseLevelChange, nextPage}
-    });
+    const page = React.createElement(component, Object.assign(
+      state,
+      (currentPage === 0 && {onGlucoseLevelChange, nextPage, cancelForm}),
+      (currentPage > 0 && {prevPage})
+    ));
     return (
       <div data-component="MeasureWizardForm">
         {page}

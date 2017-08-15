@@ -5,12 +5,30 @@ import SvgVerticalSlider from '../common/SvgVerticalSlider/';
 import IconCircleButton from '../common/IconCircleButton/';
 import Button from '../common/Button/';
 
-const GlucoseForm = ({onGlucoseLevelChange, glucoseValue, nextPage}) => (
+const DIAMETER = 40;
+
+const GlucoseForm = ({
+  onGlucoseLevelChange,
+  glucoseValue,
+  cancelForm,
+  prevPage,
+  nextPage
+}) => (
   <div data-component="GlucoseForm">
     <div data-header>
-      <IconCircleButton disabled icon="AngleLeft" diameter={40}/>
+      <IconCircleButton 
+        disabled={!prevPage}
+        icon="AngleLeft"
+        diameter={DIAMETER}
+        onClick={(e) => prevPage && prevPage(e)}
+      />
       <h4 data-title>Valor de glucosa medida</h4>
-      <IconCircleButton icon="Times" diameter={40}/>
+      <IconCircleButton 
+        icon="Times" 
+        type="default"        
+        diameter={DIAMETER}
+        onClick={(e) => cancelForm && cancelForm(e)}
+      />
     </div>
     
     <SvgVerticalSlider onChange={onGlucoseLevelChange} value={glucoseValue}/>
@@ -28,6 +46,8 @@ const GlucoseForm = ({onGlucoseLevelChange, glucoseValue, nextPage}) => (
 GlucoseForm.propTypes = {
   onGlucoseLevelChange: T.func,
   nextPage: T.func,
+  prevPage: T.func,
+  cancelForm: T.func,
   glucoseValue: T.number,
 };
 

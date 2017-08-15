@@ -1,6 +1,29 @@
+[data-component="GlucoseForm"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 [data-component="GlucoseForm"] [data-header] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1em;
+  padding: 0.5em;
+  background: whitesmoke;
+  border-bottom: 1px solid rgba(169, 169, 169, 0.37);
+}
+
+[data-component="GlucoseForm"] [data-header] h4 {
+  margin: 0;
+}
+
+[data-component="GlucoseForm"] [data-next-button] {
+  padding: 0.5em;
+  background: whitesmoke;
+  border-top: 1px solid rgba(169, 169, 169, 0.37);
+}
+
+[data-component="GlucoseForm"] [data-next-button] [data-component="Ripple"] {
+  width: 100%;
 }

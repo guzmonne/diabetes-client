@@ -1,7 +1,7 @@
 import './style.css';
 import React from 'react';
 import T from 'prop-types';
-import Icon from '../common/Icon/';
+import Svg from '../common/Svg/';
 import SelectorButton from './SelectorButton.js';
 
 const MIN_WIDTH = 366;
@@ -31,7 +31,7 @@ const TimeOfDaySelector = ({value, previousValue, onChange}) => {
         >Antes</SelectorButton>
         
         <div data-icon style={{width: diameter}}>
-          <Icon width={iconSize} height={iconSize} name={meal}/>
+          <Svg width={iconSize} height={iconSize} name={meal}/>
           <h4>{MEALS_NAMES[i]}</h4>
         </div>
         
