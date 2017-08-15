@@ -1,15 +1,16 @@
 import React from 'react'
 import GlucoseForm from './GlucoseForm.js';
-import Page2 from './Page2.js';
+import TimeOfDayForm from './TimeOfDayForm.js';
 import Page3 from './Page3.js';
 
-const PAGES = [GlucoseForm, Page2, Page3];
+const PAGES = [GlucoseForm, TimeOfDayForm, Page3];
 
 class MeasureWizardForm extends React.Component {
   constructor() {
     super();
     // Bind functions.
     this.onGlucoseLevelChange = this.onGlucoseLevelChange.bind(this);
+    this.onTimeOfDayChange = this.onTimeOfDayChange.bind(this);
     this.nextPage = this.nextPage.bind(this);
     this.prevPage = this.prevPage.bind(this);
     this.cancelForm = this.cancelForm.bind(this);
@@ -31,7 +32,7 @@ class MeasureWizardForm extends React.Component {
   prevPage(e) {
     e.preventDefault();
     console.log('prevPage');
-    this.setState((state) => ({currentPage: Storage.currentPage - 1}));
+    this.setState((state) => ({currentPage: state.currentPage - 1}));
   }
 
   cancelForm(e) {
@@ -39,17 +40,27 @@ class MeasureWizardForm extends React.Component {
     console.log('cancelForm');
   }
 
-  onGlucoseLevelChange(e) {
-    this.setState({glucoseValue: e});
+  onGlucoseLevelChange(value) {
+    this.setState({glucoseValue: value});
+  }
+
+  onTimeOfDayChange(value) {
+    this.setState({timeOfDayValue: value})
   }
   
   render() {
-    const {onGlucoseLevelChange, nextPage, prevPage, cancelForm} = this;
+    const {
+      onGlucoseLevelChange,
+      onTimeOfDayChange,
+      nextPage,
+      prevPage,
+      cancelForm} = this;
     const {currentPage, ...state} = this.state;
     const component = PAGES[currentPage];
     const page = React.createElement(component, Object.assign(
       state,
       (currentPage === 0 && {onGlucoseLevelChange, nextPage, cancelForm}),
+      (currentPage === 1 && {onTimeOfDayChange, nextPage, cancelForm}),
       (currentPage > 0 && {prevPage})
     ));
     return (

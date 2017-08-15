@@ -1,24 +1,24 @@
 import './style.css';
 import React from 'react';
 import T from 'prop-types';
-import SvgVerticalSlider from '../common/SvgVerticalSlider/';
+import TimeOfDaySelector from '../TimeOfDaySelector/';
 import Header from './Header.js';
 import Button from '../common/Button/';
 
-const GlucoseForm = ({
-  onGlucoseLevelChange,
-  glucoseValue,
+const TimeOfDayForm = ({
+  onTimeOfDayChange,
+  timeOfDayValue,
   cancelForm,
   prevPage,
   nextPage
 }) => (
-  <div data-component="GlucoseForm">
+  <div data-component="TimeOfDayForm">
     <Header 
-      title="Nivel de glucosa (1/2)"
+      title="Hora del día (2/2)"
       prevPage={prevPage}
       cancelForm={cancelForm}  
     />
-    <SvgVerticalSlider onChange={onGlucoseLevelChange} value={glucoseValue}/>
+    <TimeOfDaySelector onChange={onTimeOfDayChange} value={timeOfDayValue}/>
     <div data-next-button>
       <Button 
         type="info"
@@ -30,7 +30,7 @@ const GlucoseForm = ({
   </div>
 );
 
-GlucoseForm.propTypes = {
+TimeOfDayForm.propTypes = {
   onGlucoseLevelChange: T.func,
   nextPage: T.func,
   prevPage: T.func,
@@ -38,4 +38,4 @@ GlucoseForm.propTypes = {
   glucoseValue: T.number,
 };
 
-export default GlucoseForm;
+export default TimeOfDayForm;

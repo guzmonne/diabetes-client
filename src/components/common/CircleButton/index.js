@@ -1,6 +1,7 @@
 import './style.css';
 import React from 'react';
 import T from 'prop-types';
+import withRipple from '../Ripple/';
 
 const CircleButton = ({diameter, children, color, style, ...rest}) => (
   <button data-component="CircleButton" 
@@ -29,4 +30,4 @@ CircleButton.defaultProps = {
   style: {},
 };
 
-export default CircleButton;
+export default withRipple(CircleButton);

@@ -5,15 +5,16 @@ import Svg from '../common/Svg/';
 import SelectorButton from './SelectorButton.js';
 
 const MIN_WIDTH = 366;
-const DIAMETER = 90;
+const DIAMETER = 80;
 const FONT_SIZE = 16;
-const ICON_SIZE = 60;
+const ICON_SIZE = 50;
 const MEALS = ['breakfast', 'lunch', 'coffee', 'dinner'];
 const MEALS_NAMES = ['Desayuno', 'Almuerzo', 'Merienda', 'Cena'];
 
 const TimeOfDaySelector = ({value, previousValue, onChange}) => {
-  const pageWidth = document.body.selectValueWidth;
+  const pageWidth = document.body.offsetWidth;
   const scale = pageWidth < MIN_WIDTH ? pageWidth / MIN_WIDTH : 1;
+  console.log(scale);
   const diameter = DIAMETER * scale;
   const fontSize = FONT_SIZE * scale;
   const iconSize = ICON_SIZE * scale;
