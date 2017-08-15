@@ -1,5 +1,7 @@
 import './style.css'
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import T from 'prop-types';
+import {Provider} from 'react-redux'; 
 import Home from '../Home/';
 
 class App extends Component {
@@ -25,12 +27,19 @@ class App extends Component {
   }
 
   render() {
+    const {store} = this.props;
     return (
-      <div data-component="App">
-        <Home />
-      </div>
+      <Provider store={store}>
+        <div data-component="App">
+          <Home />
+        </div>
+      </Provider>
     );
   }
 }
+
+App.propTypes = {
+  store: T.object.isRequired,
+};
 
 export default App;
